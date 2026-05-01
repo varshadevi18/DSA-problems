@@ -1,0 +1,27 @@
+import java.util.*;
+public class Main{
+    public static void main(String[] args){
+        Scanner sc= new Scanner(System.in);
+        String s= sc.nextLine();
+        s=s.toLowerCase();
+        int[] f= new int[26];
+        for(int i=0;i<s.length();i++){
+            char ch= s.charAt(i);
+            if(ch>='a' && ch<='z'){
+                f[ch- 'a']++;
+            }
+        }
+        boolean [] print= new boolean[26];
+        for(int i=0; i<s.length();i++){
+            char ch= s.charAt(i);
+            if(ch>='a' && ch<='z'){
+                int index= ch- 'a';
+                if(!print[index]){
+                    System.out.println(ch+": "+f[index]);
+                    print[index]=true;
+                }
+            }
+        }
+        
+    }
+}
