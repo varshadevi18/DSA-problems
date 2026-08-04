@@ -1,27 +1,21 @@
 
-import java.util.*;
-class Main{
-    public static void main(String[] args){
-        Scanner sc= new Scanner(System.in);
-        int n= sc.nextInt();
-        int [] nums= new int[n];
-        for(int i=0;i<n;i++){
-            nums[i]= sc.nextInt();
-        }
-        int p=1;
-        for(int j=0;j<n;j++){
-            if(nums[j]==0){
-                p=0;
+class Solution {
+    public int[] productExceptSelf(int[] nums) {
+        int n = nums.length;
+        int[] ans = new int[n];
+
+        for(int i = 0; i < n; i++) {
+            int product = 1;
+
+            for(int j = 0; j < n; j++) {
+                if(i != j) {
+                    product *= nums[j];
+                }
             }
-            else{
-                p*= nums[j];
-            }
+
+            ans[i] = product;
         }
-        for(int i=0; i<n;i++){
-            nums[i]= p/nums[i];
-        }
-        for(int i=0;i<n;i++){
-            System.out.print(nums[i]);
-        }
+
+        return ans;
     }
 }
