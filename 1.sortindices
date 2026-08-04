@@ -64,3 +64,71 @@ class Main
 		}
 	}
 }
+2. with arraylist
+
+import java.util.*;
+
+class Main
+{
+	public static void main (String[] args) throws java.lang.Exception
+	{
+	    Scanner sc= new Scanner(System.in);
+		int n=sc.nextInt();
+		int nums[] = new int[n];
+		List<Integer> even= new ArrayList<>();
+		List<Integer> odd= new ArrayList<>();
+		for(int i=0;i<n;i++){
+		    nums[i]= sc.nextInt();
+		}
+		int e=0;
+		int o=0;
+		for(int i=0; i<n ;i++){
+		    if(i%2==0){
+		        even.add(nums[i]);
+		    }
+		    else{
+		        odd.add(nums[i]);
+		    }
+		}
+		int en= even.size();
+		int on= odd.size();
+
+        for(int i=0;i<en-1;i++){
+            for(int j=0; j<en-1;j++){
+                if(even.get(j)>even.get(j+1)){
+                    int tem= even.get(j);
+                    even.set(j,even.get(j+1));
+                    even.set(j+1,tem);
+                    
+                }
+            }
+        }
+        for(int i=0;i<on-1;i++){
+            for(int j=0; j<on-1;j++){
+                if(odd.get(j)<odd.get(j+1)){
+                    int tem= odd.get(j);
+                    odd.set(j,odd.get(j+1));
+                    odd.set(j+1,tem);
+                    
+                }
+            }
+        }
+		int ae=0, ao=0;
+		for(int i=0;i<n;i++){
+		    if(i%2==0){
+		        nums[i]= even.get(ae);
+		        ae++;
+		        
+		    }
+		    else{
+		        nums[i]= odd.get(ao);
+		        ao++;
+		    }
+		}
+		
+
+		for(int i=0;i<n;i++){
+		    System.out.print(nums[i]);
+		}
+	}
+}
