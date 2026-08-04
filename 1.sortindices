@@ -1,0 +1,66 @@
+import java.util.*;
+
+class Main
+{
+	public static void main (String[] args) throws java.lang.Exception
+	{
+	    Scanner sc= new Scanner(System.in);
+		int n=sc.nextInt();
+		int nums[] = new int[n];
+		int even[]= new int[(n+1)/2];
+		int odd[]= new int[n/2];
+		for(int i=0;i<n;i++){
+		    nums[i]= sc.nextInt();
+		}
+		int e=0;
+		int o=0;
+		for(int i=0; i<n ;i++){
+		    if(i%2==0){
+		        even[e]= nums[i];
+		        e++;
+		    }
+		    else{
+		        odd[o]= nums[i];
+		        o++;
+		    }
+		}
+		int en= (n+1)/2;
+		int on= n/2;
+
+        for(int i=0;i<en-1;i++){
+            for(int j=0; j<en-1;j++){
+                if(even[j]>even[j+1]){
+                    int tem= even[j];
+                    even[j]=even[j+1];
+                    even[j+1]=tem;
+                }
+            }
+        }
+        for(int i=0;i<on-1;i++){
+            for(int j=0; j<on-1;j++){
+                if(odd[j]<odd[j+1]){
+                    int tem= odd[j];
+                    odd[j]=odd[j+1];
+                    odd[j+1]=tem;
+                }
+            }
+        }
+		int ae=0, ao=0;
+		for(int i=0;i<n;i++){
+		    if(i%2==0){
+		        nums[i]= even[ae];
+		        ae++;
+		        
+		    }
+		    else{
+		        nums[i]= odd[ao];
+		        ao++;
+		    }
+		}
+		
+
+		for(int i=0;i<n;i++){
+		    System.out.print(nums[i]);
+		}
+	}
+}
