@@ -1,0 +1,57 @@
+import java.util.*;
+
+class Main
+{
+	public static void main (String[] args) throws java.lang.Exception
+	{		
+		
+		// ArrayList
+		
+		List<Integer> arr= new ArrayList<>();
+		arr.add(4);
+		arr.add(14);
+		arr.add(24);
+		arr.add(34);
+		for(int n: arr){
+		    System.out.println(n);
+		}
+		
+		
+		// Hashset
+		
+		HashSet<Integer> arr= new HashSet<>();
+		arr.add(5);
+		arr.add(4);
+		arr.add(5);
+		arr.add(6);
+		arr.add(1);
+		arr.add(50);
+        arr.add(2);
+        arr.add(100);
+        arr.add(7);
+        arr.add(25);
+		for(int n: arr){
+		    System.out.println(n);
+		}
+		
+		//Treeset
+		
+		TreeSet<Integer> arr= new TreeSet<>();
+		arr.add(5);
+		arr.add(4);
+		arr.add(5);
+		arr.add(6);
+		arr.add(1);
+		arr.add(6);
+		arr.add(1);
+		arr.add(50);
+        arr.add(2);
+        arr.add(100);
+        arr.add(7);
+        arr.add(25);
+		for(int n: arr){
+		    System.out.println(n);
+		}
+		
+	}
+}
