@@ -1,0 +1,40 @@
+//Linear Search
+
+import java.util.*;
+import java.lang.*;
+import java.io.*;
+
+class Main
+{
+	public static void main (String[] args) throws java.lang.Exception
+	{
+		// your code goes here
+		Scanner sc= new Scanner(System.in);
+		int n= sc.nextInt();
+		int element= sc.nextInt();
+		int [] arr= new int[n];
+		for(int i=0; i<n;i++){
+		    arr[i]= sc.nextInt();
+		}
+
+		boolean found= false;
+		int index=-1;
+		for(int i=0;i<n;i++){
+		    if(arr[i]==element){
+		        found= true;
+		        index=i;
+		        break;
+		    }
+		}
+		if(found){
+		     System.out.println("Element found at index: "+index);
+		    }
+		    
+		else
+		{
+		 System.out.println("Element not found");
+		    
+		}	
+
+	}
+}
