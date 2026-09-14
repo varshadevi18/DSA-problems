@@ -1,0 +1,64 @@
+//Reverse an Array
+
+// method 1 using new extra array
+
+import java.util.*;
+import java.lang.*;
+import java.io.*;
+
+class Main
+{
+	public static void main (String[] args) throws java.lang.Exception
+	{
+		// your code goes here
+		Scanner sc= new Scanner(System.in);
+		int n= sc.nextInt();
+		int [] arr= new int[n];
+		int [] revarr= new int[n];
+		for(int i=0; i<n;i++){
+		    arr[i]= sc.nextInt();
+		}
+		for(int i=0; i<n;i++){
+		    revarr[i]=arr[n-i-1];
+		}
+		for(int i=0; i<n;i++){
+		    System.out.println(revarr[i]);
+		}
+		
+
+	}
+}
+
+// method 2 two pointer
+
+import java.util.*;
+import java.lang.*;
+import java.io.*;
+
+class Main
+{
+	public static void main (String[] args) throws java.lang.Exception
+	{
+		// your code goes here
+		Scanner sc= new Scanner(System.in);
+		int n= sc.nextInt();
+		int [] arr= new int[n];
+		for(int i=0; i<n;i++){
+		    arr[i]= sc.nextInt();
+		}
+		int left=0;
+		int right=n-1;
+		while(left<right){
+		    int temp=arr[left];
+		    arr[left]= arr[right];
+		    arr[right]= temp;
+		    left++;
+		    right--;
+		}
+		for(int i=0; i<n;i++){
+		    System.out.println(arr[i]);
+		}	
+
+	}
+}
+
