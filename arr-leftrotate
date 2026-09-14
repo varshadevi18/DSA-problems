@@ -1,0 +1,87 @@
+//Rotate array by k times
+//left rotation
+//method 1- two pointer 
+Brute force
+O(n*k) // time limit exceeds
+
+import java.util.*;
+import java.lang.*;
+import java.io.*;
+
+class Main
+{
+	public static void main (String[] args) throws java.lang.Exception
+	{
+		// your code goes here
+		Scanner sc= new Scanner(System.in);
+		int n= sc.nextInt();
+		int k= sc.nextInt();
+		int [] arr= new int[n];
+		for(int i=0; i<n;i++){
+		    arr[i]= sc.nextInt();
+		}
+		for(int j=0; j<k;j++){
+		int temp=arr[0];
+		for(int i=1;i<n;i++){
+		    arr[i-1]=arr[i];
+		}
+		arr[n-1]= temp;
+		}
+		
+		for(int i=0; i<n;i++){
+		    System.out.println(arr[i]);
+		}
+		
+
+	}
+}
+
+// method 2- optimal
+// approach:
+1. reverse elements upto k places
+2. reverse elements from k to n
+3. reverse all the elements
+// and also take modulus for k value if big
+
+import java.util.*;
+import java.lang.*;
+import java.io.*;
+
+class Main
+{
+    public static void reversal(int []nums, int start, int end){
+        int left=start;
+        int right=end-1;
+        while(left<right){
+            int temp= nums[left];
+            nums[left]=nums[right];
+            nums[right]= temp;
+            left++;
+            right--;
+        }
+    }
+	public static void main (String[] args) throws java.lang.Exception
+	{
+		// your code goes here
+		Scanner sc= new Scanner(System.in);
+		int n= sc.nextInt();
+		int k= sc.nextInt();
+		int [] arr= new int[n];
+		for(int i=0; i<n;i++){
+		    arr[i]= sc.nextInt();
+		}
+		reversal(arr, 0,k);
+		reversal(arr,k,n );
+		reversal(arr,0, n);
+		
+		
+		for(int i=0; i<n;i++){
+		    System.out.println(arr[i]);
+		}
+		
+
+	}
+}
+
+
+
