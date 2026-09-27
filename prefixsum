@@ -46,32 +46,27 @@ class Result {
     }
 }
 
-public class Solution {
-    public static void main(String[] args) throws IOException {
-        BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(System.in));
-        BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter(System.getenv("OUTPUT_PATH")));
+brute force
 
-        int T = Integer.parseInt(bufferedReader.readLine().trim());
-
-        IntStream.range(0, T).forEach(TItr -> {
-            try {
-                int n = Integer.parseInt(bufferedReader.readLine().trim());
-
-                List<Integer> arr = Stream.of(bufferedReader.readLine().replaceAll("\\s+$", "").split(" "))
-                    .map(Integer::parseInt)
-                    .collect(toList());
-
-                String result = Result.balancedSums(arr);
-
-                bufferedWriter.write(result);
-                bufferedWriter.newLine();
-            } catch (IOException ex) {
-                throw new RuntimeException(ex);
-            }
-        });
-
-        bufferedReader.close();
-        bufferedWriter.close();
+// Write your code here
+    boolean number= false;
+    int n= arr.size();
+    int sum=0;
+    int ls=0;
+    int rs=0;
+    for(int i=0;i<n;i++){
+        sum+= arr.get(i);
+    }
+    for(int l=0; l<n;l++){
+        rs= sum-ls-arr.get(l);
+        if(ls==rs){
+            return "YES";
+        }
+        ls+= arr.get(l);
+        
+    }
+    return "NO";
     }
 }
-brute force
+
+optimal
