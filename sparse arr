@@ -1,0 +1,42 @@
+List<String> queries) {
+    // Write your code here
+    int nl= stringList.size();
+    int ql= queries.size();
+    List<Integer> result= new ArrayList<>();
+    for(int i=0; i<ql;i++){
+        int c=0;
+        for(int j=0;j< nl;j++){
+            String ans= stringList.get(j);
+            if(ans.equals(queries.get(i))){
+                c++;
+            }
+        }
+        result.add(c);
+    }
+    return result;
+    }
+
+}
+// brute
+
+    public static List<Integer> matchingStrings(List<String> stringList, List<String> queries) {
+    // Write your code here
+    int nl= stringList.size();
+    int ql= queries.size();
+    List<Integer> result= new ArrayList<>();
+    Map<String, Integer> mpp= new HashMap();
+    for(int i=0; i<nl;i++){
+        mpp.put(stringList.get(i), mpp.getOrDefault(stringList.get(i),0)+1);
+    }
+    for(String s: queries){
+        int c=0;
+        if(mpp.containsKey(s)){
+            c= mpp.get(s);
+        }
+        result.add(c);
+    }
+    return result;
+    }
+
+}
+// optimal use hashmap
